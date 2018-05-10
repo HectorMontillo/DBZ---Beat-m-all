@@ -1,0 +1,18 @@
+Requisitos 2 parcial Compugrafica
+
+Fecha de entrega: Mayo 11/2018
+
+1: Menú tres opciones minimo 10%
+2: Pausa durante el juego 10%
+3: 1 Nivel: 70%
+  - Fondo real minimo 2000*1200px 10%
+  - 2 Jugadores 10%
+  - Uso de sprites no deben usarse los empleados en clase 10%
+  - 2 tipos de enemigos, 1 estatico (al menos 10 a lo largo del mapa), 1 dinamico. Deben generarse continuamente 20%
+  - Fondo y efecto de sonido 5%
+  - linea de vida jugadores 5%
+  - Modificadores de juego 4, completamente diferenciables 10%
+4: Gestion del juego: 10%
+  - Siempre regresar a menu inicial
+  - Mensaje del fin del juego en caso de derrota
+  - Mensaje de victoria en caso de completar objetivos
