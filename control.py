@@ -16,8 +16,11 @@ class Control():
         if not self.estado.fin:
             self.estado.actualizar()
         else:
-            self.estado.fin = False
-            self.estado = self.estados[self.estado.siguienteEstado]
+            if self.estado.siguienteEstado == "QUIT":
+                self.fin = True
+            else:
+                self.estado.fin = False
+                self.estado = self.estados[self.estado.siguienteEstado]
 
     def preparar_estados(self, estados, estadoinicial):
         self.estado = estadoinicial

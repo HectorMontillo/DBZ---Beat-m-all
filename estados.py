@@ -11,12 +11,48 @@ class Menu():
         self.siguienteEstado = "Level"
         self.ventana = pg.display.get_surface()
         pg.display.set_caption(self.caption)
+        self.opciones = {"Play": (448,300), "Quit": (448,364), "Credits": (416,428)}
+        self.n = 0
+        self.fbtn = False
 
-        self.opciones = ["Jugar", "Creditos", "Salir"]
-
-    def actualizar(self):
-        #self.ventana.fill(c.NEGRO)
+    def actualizar(self):   
         self.ventana.blit(c.MenuGraficos["MenuBackground"],(0,0))
+        self.ventana.blit(c.MenuGraficos["BotonPlay"],(448,300))
+        self.ventana.blit(c.MenuGraficos["BotonQuit"],(448,364))
+        self.ventana.blit(c.MenuGraficos["BotonCredits"],(416,428))
+
+        key = pg.key.get_pressed()
+        if (key[pg.K_DOWN] or key[pg.K_RIGHT]) and not self.fbtn:
+            self.fbtn = True
+            if self.n < 2:
+                self.n+=1
+            else:
+                self.n = 0
+        if (key[pg.K_UP] or key[pg.K_LEFT]) and not self.fbtn:
+            self.fbtn = True
+            if self.n > 0:
+                self.n-=1
+            else:
+                self.n = 2
+        if (not key[pg.K_UP]) and (not key[pg.K_RIGHT]) and (not key[pg.K_DOWN]) and (not key[pg.K_LEFT]):
+            self.fbtn = False
+
+        if key[pg.K_SPACE]:
+            if self.n == 0:
+                self.siguienteEstado = "Level"
+                self.fin = True
+            elif self.n == 1:
+                self.siguienteEstado = "QUIT"
+                self.fin = True
+            else:
+                pass
+
+        if self.n == 0:
+            self.ventana.blit(c.MenuGraficos["Puntero"],(400,296))
+        elif self.n == 1:
+            self.ventana.blit(c.MenuGraficos["Puntero"],(400,360))
+        else:
+            self.ventana.blit(c.MenuGraficos["Puntero"],(368,424))
 
 
 
